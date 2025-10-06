@@ -1,0 +1,143 @@
+{
+  "drinks": [
+    {
+      "id": 1,
+      "name": "Pink Drink",
+      "category": "tea",
+      "image": "https://globalassets.starbucks.com/assets/f12bc8af498d45ed92c5d6f1dac64062.jpg",
+      "description": "A refreshing coconut milk and strawberry acai blend",
+      "ingredients": [
+        "Strawberry Acai Refresher",
+        "Coconut milk",
+        "Freeze-dried strawberries"
+      ],
+      "instructions": "Ask for a 'Strawberry Acai Refresher with coconut milk instead of water and add freeze-dried strawberries'"
+    },
+    {
+      "id": 2,
+      "name": "Butterbeer Latte",
+      "category": "coffee",
+      "image": "https://globalassets.starbucks.com/assets/f10f1b8b8e8e4d36b5c5b4a1c2d3e4f5.jpg",
+      "description": "Harry Potter inspired sweet and creamy latte",
+      "ingredients": [
+        "Caffè Latte (whole milk)",
+        "Cinnamon dolce syrup (2 pumps)",
+        "Toffee nut syrup (2 pumps)",
+        "Caramel sauce on top"
+      ],
+      "instructions": "Order a 'Caffè Latte with 2 pumps cinnamon dolce syrup, 2 pumps toffee nut syrup, and caramel sauce on top'"
+    },
+    {
+      "id": 3,
+      "name": "Cookies and Cream Frappuccino",
+      "category": "frappuccino",
+      "image": "https://globalassets.starbucks.com/assets/a1b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6.jpg",
+      "description": "Oreo-inspired chocolatey frozen treat",
+      "ingredients": [
+        "Vanilla Bean Frappuccino",
+        "Java chips",
+        "Chocolate syrup",
+        "Whipped cream",
+        "Cookie crumbs"
+      ],
+      "instructions": "Ask for a 'Vanilla Bean Frappuccino with java chips, chocolate syrup blended in, topped with whipped cream and cookie crumbs'"
+    },
+    {
+      "id": 4,
+      "name": "Nutella Latte",
+      "category": "coffee",
+      "image": "https://globalassets.starbucks.com/assets/b2c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7.jpg",
+      "description": "Rich hazelnut and chocolate flavored latte",
+      "ingredients": [
+        "Caffè Latte",
+        "Hazelnut syrup (2 pumps)",
+        "Mocha syrup (1 pump)",
+        "Whipped cream"
+      ],
+      "instructions": "Order a 'Caffè Latte with 2 pumps hazelnut syrup, 1 pump mocha syrup, and whipped cream on top'"
+    },
+    {
+      "id": 5,
+      "name": "Vampire Frappuccino",
+      "category": "frappuccino",
+      "image": "https://globalassets.starbucks.com/assets/c3d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8.jpg",
+      "description": "Dark and dramatic berry-flavored frappuccino",
+      "ingredients": [
+        "Strawberry Frappuccino",
+        "Raspberry syrup (1 pump)",
+        "Mocha drizzle",
+        "Whipped cream"
+      ],
+      "instructions": "Ask for a 'Strawberry Frappuccino with 1 pump raspberry syrup, mocha drizzle, and whipped cream'"
+    },
+    {
+      "id": 6,
+      "name": "Sunset Refresher",
+      "category": "tea",
+      "image": "https://globalassets.starbucks.com/assets/d4e5f6a7b8c9d0e1f2a3b4c5d6e7f8g9.jpg",
+      "description": "Beautiful orange and pink layered refresher",
+      "ingredients": [
+        "Mango Dragonfruit Refresher (half)",
+        "Peach Green Tea (half)",
+        "Lemonade splash"
+      ],
+      "instructions": "Order half 'Mango Dragonfruit Refresher' and half 'Peach Green Tea' with a splash of lemonade - ask them not to mix it"
+    },
+    {
+      "id": 7,
+      "name": "Birthday Cake Frappuccino",
+      "category": "frappuccino",
+      "image": "https://globalassets.starbucks.com/assets/e5f6a7b8c9d0e1f2a3b4c5d6e7f8g9h0.jpg",
+      "description": "Celebratory vanilla cake flavored frozen drink",
+      "ingredients": [
+        "Vanilla Bean Frappuccino",
+        "Hazelnut syrup (1 pump)",
+        "Whipped cream",
+        "Rainbow sprinkles"
+      ],
+      "instructions": "Ask for a 'Vanilla Bean Frappuccino with 1 pump hazelnut syrup, whipped cream, and rainbow sprinkles on top'"
+    },
+    {
+      "id": 8,
+      "name": "Caramel Apple Spice",
+      "category": "tea",
+      "image": "https://globalassets.starbucks.com/assets/f6a7b8c9d0e1f2a3b4c5d6e7f8g9h0i1.jpg",
+      "description": "Warm apple cider with caramel sweetness",
+      "ingredients": [
+        "Steamed apple juice",
+        "Cinnamon dolce syrup (2 pumps)",
+        "Whipped cream",
+        "Caramel sauce"
+      ],
+      "instructions": "Order 'Steamed apple juice with 2 pumps cinnamon dolce syrup, whipped cream, and caramel sauce on top'"
+    },
+    {
+      "id": 9,
+      "name": "Twix Frappuccino",
+      "category": "frappuccino",
+      "image": "https://globalassets.starbucks.com/assets/a7b8c9d0e1f2a3b4c5d6e7f8g9h0i1j2.jpg",
+      "description": "Candy bar inspired caramel and chocolate treat",
+      "ingredients": [
+        "Caramel Frappuccino",
+        "Java chips",
+        "Extra caramel drizzle",
+        "Whipped cream"
+      ],
+      "instructions": "Ask for a 'Caramel Frappuccino with java chips, extra caramel drizzle, and whipped cream'"
+    },
+    {
+      "id": 10,
+      "name": "Dirty Shirley",
+      "category": "tea",
+      "image": "https://globalassets.starbucks.com/assets/b8c9d0e1f2a3b4c5d6e7f8g9h0i1j2k3.jpg",
+      "description": "Cherry-lime refresher with a grown-up twist",
+      "ingredients": [
+        "Passion Tea (unsweetened)",
+        "Liquid cane sugar (2 pumps)",
+        "Lemonade",
+        "Light splash of coconut milk"
+      ],
+      "instructions": "Order 'Passion Tea with 2 pumps liquid cane sugar, lemonade, and a light splash of coconut milk'"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-dark-bg text-white font-sans;
+  }
+}
+
+@layer components {
+  .drink-card {
+    @apply bg-card-bg rounded-xl p-4 shadow-lg transition-transform duration-200 hover:scale-105 cursor-pointer;
+  }
+  
+  .drink-card-image {
+    @apply w-full h-48 object-cover rounded-lg mb-3;
+  }
+  
+  .btn-primary {
+    @apply bg-starbucks-green hover:bg-starbucks-light-green text-white px-6 py-2 rounded-lg font-medium transition-colors duration-200;
+  }
+  
+  .nav-icon {
+    @apply text-starbucks-green hover:text-starbucks-light-green transition-colors duration-200;
+  }
+}
