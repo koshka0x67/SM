@@ -3,39 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Starbucks Secret Menu</title>
-    <link href="./css/output.css" rel="stylesheet">
+    <title>Secret Menu</title>
+    <link href="./css/style.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="pb-20">
     <!-- Header -->
     <header class="bg-card-bg shadow-lg sticky top-0 z-40">
-        <div class="max-w-6xl mx-auto px-4 py-4">
-            <h1 class="text-2xl font-bold text-center">
-                <span class="text-starbucks-green">Starbucks</span> Secret Menu
-            </h1>
+        <div class="max-w-6xl mx-auto px-4 py-2 site-header">
+            <a class="brand" href="index.html" aria-label="Home">
+                <img class="brand-logo-wide" src="./assets/images/logotest2.png" alt="Logo">
+            </a>
         </div>
     </header>
 
     <!-- Main Content -->
     <main class="max-w-6xl mx-auto px-4 py-8">
-        <!-- Filter Buttons -->
-        <div class="flex flex-wrap gap-2 mb-8 justify-center">
-            <button onclick="filterDrinks('all')" class="filter-btn active bg-starbucks-green text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
-                All Drinks
-            </button>
-            <button onclick="filterDrinks('coffee')" class="filter-btn bg-gray-700 hover:bg-starbucks-green text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
-                Coffee
-            </button>
-            <button onclick="filterDrinks('frappuccino')" class="filter-btn bg-gray-700 hover:bg-starbucks-green text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
-                Frappuccino
-            </button>
-            <button onclick="filterDrinks('tea')" class="filter-btn bg-gray-700 hover:bg-starbucks-green text-white px-4 py-2 rounded-lg font-medium transition-colors duration-200">
-                Tea & Refreshers
-            </button>
-        </div>
-
         <!-- Drinks Grid -->
         <div id="drinks-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <!-- Drink cards will be populated by JavaScript -->
@@ -48,10 +32,6 @@
             <a href="index.html" class="nav-item flex flex-col items-center">
                 <i class="fas fa-home text-xl nav-icon"></i>
                 <span class="text-xs mt-1 text-starbucks-green">Home</span>
-            </a>
-            <a href="#" onclick="showAllDrinks()" class="nav-item flex flex-col items-center">
-                <i class="fas fa-coffee text-xl nav-icon"></i>
-                <span class="text-xs mt-1 text-gray-400">All Drinks</span>
             </a>
             <a href="#" onclick="showFavorites()" class="nav-item flex flex-col items-center">
                 <i class="fas fa-heart text-xl nav-icon"></i>

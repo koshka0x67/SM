@@ -20,12 +20,18 @@ async function loadDrinks() {
 // Display drinks in grid
 function displayDrinks(drinks) {
     const container = document.getElementById('drinks-container');
-    container.innerHTML = '';
-
+    
+    // Use DocumentFragment to minimize DOM manipulation and reduce flickering
+    const fragment = document.createDocumentFragment();
+    
     drinks.forEach(drink => {
         const drinkCard = createDrinkCard(drink);
-        container.appendChild(drinkCard);
+        fragment.appendChild(drinkCard);
     });
+    
+    // Single DOM update to prevent flickering
+    container.innerHTML = '';
+    container.appendChild(fragment);
 }
 
 // Create individual drink card
@@ -139,19 +145,39 @@ function toggleFavorite(drinkId) {
     
     localStorage.setItem('starbucks-favorites', JSON.stringify(favorites));
     
-    // Refresh display
+    // Update heart icons immediately without full re-render to prevent flickering
+    updateFavoriteIcons(drinkId);
+    
+    // Only refresh display if in favorites view and this affects the list
     if (currentFilter === 'favorites') {
         showFavorites();
-    } else {
-        displayDrinks(getFilteredDrinks());
     }
+}
+
+// Update favorite icons without full re-render
+function updateFavoriteIcons(drinkId) {
+    const isFavorite = favorites.includes(drinkId);
+    const heartIcon = isFavorite ? 'fas fa-heart' : 'far fa-heart';
+    const heartColor = isFavorite ? 'text-red-500' : 'text-gray-400';
     
-    // Update modal if open
+    // Update card heart icon
+    const cardButtons = document.querySelectorAll(`button[onclick*="toggleFavorite(${drinkId})"]`);
+    cardButtons.forEach(button => {
+        const icon = button.querySelector('i');
+        if (icon) {
+            icon.className = `${heartIcon} ${heartColor} text-lg`;
+        }
+    });
+    
+    // Update modal heart icon if modal is open
     const modal = document.getElementById('drink-modal');
     if (!modal.classList.contains('hidden')) {
-        const drink = drinksData.find(d => d.id === drinkId);
-        if (drink) {
-            openDrinkModal(drink);
+        const modalButton = modal.querySelector(`button[onclick*="toggleFavorite(${drinkId})"]`);
+        if (modalButton) {
+            const modalIcon = modalButton.querySelector('i');
+            if (modalIcon) {
+                modalIcon.className = `${heartIcon.replace('text-lg', 'text-2xl')}`;
+            }
         }
     }
 }
@@ -160,14 +186,18 @@ function toggleFavorite(drinkId) {
 function filterDrinks(category) {
     currentFilter = category;
     
-    // Update filter button styles
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active', 'bg-starbucks-green');
-        btn.classList.add('bg-gray-700');
-    });
-    
-    event.target.classList.add('active', 'bg-starbucks-green');
-    event.target.classList.remove('bg-gray-700');
+    // Update filter button styles if filter buttons exist
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-starbucks-green');
+            btn.classList.add('bg-gray-700');
+        });
+        if (event && event.target) {
+            event.target.classList.add('active', 'bg-starbucks-green');
+            event.target.classList.remove('bg-gray-700');
+        }
+    }
     
     // Update navigation
     updateNavigation('all');
@@ -190,14 +220,19 @@ function showAllDrinks() {
     displayDrinks(drinksData);
     updateNavigation('all');
     
-    // Reset filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active', 'bg-starbucks-green');
-        btn.classList.add('bg-gray-700');
-    });
-    
-    document.querySelector('.filter-btn').classList.add('active', 'bg-starbucks-green');
-    document.querySelector('.filter-btn').classList.remove('bg-gray-700');
+    // Reset filter buttons (only if present in DOM)
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-starbucks-green');
+            btn.classList.add('bg-gray-700');
+        });
+        const firstBtn = document.querySelector('.filter-btn');
+        if (firstBtn) {
+            firstBtn.classList.add('active', 'bg-starbucks-green');
+            firstBtn.classList.remove('bg-gray-700');
+        }
+    }
 }
 
 // Show favorites
@@ -213,11 +248,14 @@ function showFavorites() {
     
     updateNavigation('favorites');
     
-    // Reset filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-        btn.classList.remove('active', 'bg-starbucks-green');
-        btn.classList.add('bg-gray-700');
-    });
+    // Reset filter buttons only if present
+    const filterButtons = document.querySelectorAll('.filter-btn');
+    if (filterButtons.length > 0) {
+        filterButtons.forEach(btn => {
+            btn.classList.remove('active', 'bg-starbucks-green');
+            btn.classList.add('bg-gray-700');
+        });
+    }
 }
 
 // Display no favorites message
@@ -250,9 +288,8 @@ function updateNavigation(active) {
     // Set active navigation item
     const navItems = document.querySelectorAll('.nav-item');
     let activeIndex = 0;
-    
-    if (active === 'favorites') activeIndex = 2;
-    else if (active === 'all') activeIndex = 1;
+    // With two items (Home, Favorites), favorites is index 1
+    if (active === 'favorites') activeIndex = 1;
     
     if (navItems[activeIndex]) {
         const span = navItems[activeIndex].querySelector('span');
